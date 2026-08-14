@@ -19,6 +19,8 @@ jobs:
           gradle-version: '9.4.0'
       - name: Generate standalone project from supplied source JAR
         run: python3 scripts/generate_project.py
+      - name: Patch Minecraft 26.2 block tag API
+        run: sed -i 's/block\.defaultBlockState()\.getTags()/block.builtInRegistryHolder().tags()/g' src/client/java/com/markuskjosen/inventorysounds/SoundRules.java
       - name: Build Fabric mod
         run: gradle build --stacktrace
       - name: Upload finished mod
