@@ -16,7 +16,7 @@ jobs:
           java-version: '25'
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '9.1.0'
+          gradle-version: '9.4.0'
       - name: Generate standalone project from supplied source JAR
         run: python3 scripts/generate_project.py
       - name: Build Fabric mod
